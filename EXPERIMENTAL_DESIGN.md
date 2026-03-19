@@ -3,7 +3,7 @@
 > **Gate:** 0.5 (must pass before Phase 1 compute)
 > **Date:** 2026-03-19
 > **Target venue:** AISec Workshop (ACM CCS 2026) — Tier 2
-> **lock_commit:** TO BE SET
+> **lock_commit:** `1704ff5`
 > **Profile:** contract-track
 > **Budget:** ~$10-15 Claude API
 

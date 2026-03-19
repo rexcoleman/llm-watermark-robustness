@@ -3,7 +3,7 @@
 > **Project:** FP-18 (LLM Watermark Robustness Under Adversarial Paraphrasing)
 > **Created:** 2026-03-19
 > **Status:** Pre-registered (6/6)
-> **Lock commit:** TO BE SET
+> **Lock commit:** `1704ff5`
 > **Lock date:** 2026-03-19
 
 ---
