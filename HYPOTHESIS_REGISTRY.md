@@ -17,7 +17,7 @@
 | **Falsification** | If z-score increases after a paraphrase pass, the watermark signal is not monotonically degraded. |
 | **Status** | PENDING |
 | **Linked Experiment** | E1 |
-| **lock_commit** | `PENDING` |
+| **lock_commit** | `1704ff5` |
 
 ---
 
@@ -30,7 +30,7 @@
 | **Falsification** | If detection rate remains >50% after 5 passes, the watermark is more robust than expected. |
 | **Status** | PENDING |
 | **Linked Experiment** | E1 |
-| **lock_commit** | `PENDING` |
+| **lock_commit** | `1704ff5` |
 
 ---
 
@@ -43,7 +43,7 @@
 | **Falsification** | If delta doesn't affect survival, watermark strength is decoupled from robustness. |
 | **Status** | PENDING |
 | **Linked Experiment** | E4 |
-| **lock_commit** | `PENDING` |
+| **lock_commit** | `1704ff5` |
 
 ---
 
@@ -56,7 +56,7 @@
 | **Falsification** | If length doesn't matter, the watermark encodes per-token, not per-document. |
 | **Status** | PENDING |
 | **Linked Experiment** | E3 |
-| **lock_commit** | `PENDING` |
+| **lock_commit** | `1704ff5` |
 
 ---
 
@@ -69,7 +69,7 @@
 | **Falsification** | If FPR > 5%, the watermark detection is too aggressive for deployment. |
 | **Status** | PENDING |
 | **Linked Experiment** | E5 |
-| **lock_commit** | `PENDING` |
+| **lock_commit** | `1704ff5` |
 
 ---
 
@@ -82,7 +82,7 @@
 | **Falsification** | If R² < 0.5, watermark removal is not smoothly predictable from these features. |
 | **Status** | PENDING |
 | **Linked Experiment** | E6 |
-| **lock_commit** | `PENDING` |
+| **lock_commit** | `1704ff5` |
 
 ---
 
