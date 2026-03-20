@@ -23,5 +23,10 @@ nohup python3 -u scripts/run_experiments.py --experiments E1,E3,E4,E5,E6 > ~/com
 echo "PID: $! — Log: ~/compute_logs/fp18_experiments.log"
 
 # Gate Validation (R50)
-echo "--- Gate Validation (R50) ---"
-bash ~/ml-governance-templates/scripts/check_all_gates.sh .
+# --- Gate Validation (R50) ---
+if [ -f "$HOME/ml-governance-templates/scripts/check_all_gates.sh" ]; then
+    echo "--- Gate Validation (R50) ---"
+    bash "$HOME/ml-governance-templates/scripts/check_all_gates.sh" .
+else
+    echo "WARN: govML not found — skipping gate validation (R50)"
+fi

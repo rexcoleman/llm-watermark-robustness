@@ -1,3 +1,12 @@
+---
+project: "FINDINGS — FP-18: LLM Watermark Robustness Under Adversarial Paraphrasing"
+fp: "FP-18"
+status: COMPLETE
+quality_score: 8.3
+last_scored: 2026-03-20
+profile: security-ml
+---
+
 # FINDINGS — FP-18: LLM Watermark Robustness Under Adversarial Paraphrasing
 
 > **Project:** FP-18 (v2 — Real Kirchenbauer Watermarking)
