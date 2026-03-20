@@ -1,4 +1,4 @@
-# LinkedIn Post — FP-18 Watermark Robustness
+# LinkedIn Post — LLM Watermark Robustness
 
 I pre-registered 6 hypotheses about LLM watermark robustness. First attempt: 0% detection across 45 conditions.
 

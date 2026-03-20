@@ -1,4 +1,4 @@
-# Substack Introduction — FP-18
+# Substack Introduction — LLM Watermark Robustness
 
 **Subject line:** How many rewrites to strip a watermark? We measured it.
 

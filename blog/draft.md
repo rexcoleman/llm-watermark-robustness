@@ -2,7 +2,7 @@
 title: "How Many Rewrites to Strip a Watermark? Empirical Paraphrase-Removal Curves for LLM Watermarks"
 date: 2026-03-20
 author: Rex Coleman
-project: FP-18
+project: LLM Watermark Robustness
 tags: [watermarking, llm-security, adversarial-robustness, ai-detection, research-governance]
 status: draft
 hypothesized: false

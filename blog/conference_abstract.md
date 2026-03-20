@@ -1,4 +1,4 @@
-# Conference Abstract — FP-18
+# Conference Abstract — LLM Watermark Robustness
 
 **Title:** Cross-Model Paraphrase Attacks on Kirchenbauer Watermarks: Empirical Removal Curves from a Pre-Registered Study
 
