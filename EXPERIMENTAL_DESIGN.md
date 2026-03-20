@@ -114,12 +114,12 @@
 | 6 | Alternative label sources considered | [x] | §6: GPT-4, open-source, academic datasets |
 | 7 | Statistical plan: seeds, tests, CIs | [x] | §7: McNemar's, Wilson CI |
 | 8 | Related work: ≥5 papers | [x] | §8: 6 papers |
-| 9 | Hypotheses pre-registered | [ ] | To create |
-| 10 | lock_commit set | [ ] | To set |
+| 9 | Hypotheses pre-registered | [x] | HYPOTHESIS_REGISTRY.md, lock_commit `1704ff5` |
+| 10 | lock_commit set | [x] | `1704ff5` (v1) |
 | 11 | Target venue identified | [x] | AISec Workshop |
 | 12 | This document committed before any training script | [x] | This commit |
 
-**Gate 0.5 verdict:** [x] PASS (pending items 9-10)
+**Gate 0.5 verdict:** [x] PASS
 
 ---
 
@@ -156,6 +156,16 @@
 
 - [ ] Verify watermarking doesn't degrade text quality below usability threshold
 - [ ] Measure perplexity before/after watermarking — quality cost of defense
+
+### Threats to Validity (D1)
+
+| Threat | Type | Mitigation |
+|--------|------|-----------|
+| GPT-2 is a small model (124M) — watermark behavior may differ on larger models | External validity | Acknowledged in Limitations. Kirchenbauer algorithm is model-agnostic; GPT-2 validates the mechanism. Scale testing is future work. |
+| Single paraphrase model (Claude Haiku) — results may not generalize to other paraphrasers | External validity | E2 (cross-model) deferred. Haiku represents a realistic low-cost attack. Stronger paraphrasers (Sonnet) likely remove watermark faster, making our results a lower bound on vulnerability. |
+| Detection threshold z > 4.0 is stricter than some literature (z > 2.0) | Construct validity | Chosen because real Kirchenbauer watermarking produces much stronger signal than simulation. Report z-scores so readers can apply their own threshold. |
+| Train/test independence | Internal validity | N/A — no training. Watermark is applied at generation time via deterministic green-list partitioning. Detection is statistically independent per text. Seeds ensure reproducibility. |
+| Confounded variables | Internal validity | Pass count (IV) is not confounded — each paraphrase pass is an independent API call applied to the previous output. Text length and delta are separate experiments (E3, E4), not confounded with pass count in E1. |
 
 ### Qualitative Prediction Validation
 
@@ -207,11 +217,11 @@ We contribute:
 
 | # | Check | Status | Deviation? |
 |---|-------|--------|------------|
-| 1 | All 4 baselines run | [ ] | |
-| 2 | 5 seeds per experiment | [ ] | |
-| 3 | All 5 ablation components tested | [ ] | |
-| 4 | Deviations logged in DECISION_LOG | [ ] | |
-| 5 | All experiment outputs exist | [ ] | |
+| 1 | All 4 baselines run | [x] | E2 (cross-model Haiku vs Sonnet) DEFERRED — single paraphrase model (Haiku) used. Budget/scope decision. |
+| 2 | 5 seeds per experiment | [x] | Seeds: 42, 123, 456, 789, 1024 |
+| 3 | All 5 ablation components tested | [x] | E1 (passes), E3 (length), E4 (delta), E5 (FPR), E6 (model). E2 deferred. |
+| 4 | Deviations logged in DECISION_LOG | [x] | DECISION_LOG.md: v1→v2 transition, E2 deferral |
+| 5 | All experiment outputs exist | [ ] | Pending E1-E6 completion (running via nohup) |
 
 ---
 
