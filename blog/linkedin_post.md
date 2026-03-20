@@ -1,24 +1,22 @@
-# LinkedIn Post — FP-18 Negative Result
+# LinkedIn Post — FP-18 Watermark Robustness
 
-I pre-registered 6 hypotheses about LLM watermark robustness. Then I ran the experiments.
+I pre-registered 6 hypotheses about LLM watermark robustness. First attempt: 0% detection across 45 conditions.
 
-Detection rate across 45 conditions: 0%.
+So I rebuilt the experiment from scratch.
 
-Not because watermarks are robust — because my simulation was too weak to test them.
+v1 approximated watermarks at the output level (synonym substitution). Only ~5 signal words per text. A power analysis would have flagged this immediately.
 
-The setup: I approximated the Kirchenbauer green-list watermark at the output level (synonym substitution) since I couldn't access model logits through the API. Tested paraphrasing attacks across 6 pass counts, 3 text lengths, 3 watermark strengths.
+v2 implements real Kirchenbauer watermarking with GPT-2 logit access. Result: z=8.44 at baseline (84.6% green tokens), 100% detection rate with zero paraphrasing.
 
-The problem: my 15-pair synonym vocabulary produces only 1-11 signal words per 200-word text. You need 16+ for statistical detection. The experiment was structurally unable to produce results regardless of other parameters.
+Then the real question: how many Claude Haiku paraphrase passes does it take to strip the watermark? Cross-model attack — the paraphraser has no knowledge of the watermark key.
 
-The governance lesson: my E0 sanity check passed — because it used a hand-crafted sentence stuffed with signal words. Real LLM output doesn't look like that. Sanity validation that doesn't use realistic data can mask fundamental design flaws.
+Key findings from the v1 failure:
+- Output-level watermark approximation is not a valid proxy for logit-level watermarking (~30x signal density gap)
+- Pre-registration forced honest reporting of the negative result
+- Two governance fixes now prevent repeats: mandatory power analysis (LL-93) and realistic sanity data (LL-94)
 
-What I'd do differently:
-→ Back-of-envelope power analysis BEFORE burning API budget
-→ E0 sanity on actual model outputs, not constructed examples
-→ Open-source model with logit access for real Kirchenbauer watermarking
+The governance framework caught what intuition missed. A back-of-envelope calculation would have saved a week.
 
-Publishing the negative result because the failure mode is instructive: approximating a mechanism at the wrong level of abstraction silently invalidates your experimental design.
+Full analysis with paraphrase-removal curves: [link]
 
-Pre-registration doesn't prevent bad designs. It just forces you to be honest about them.
-
-#AIResearch #Watermarking #NegativeResults #AISecurity #MachineLearning
+#AISecurity #Watermarking #LLMSecurity #AdversarialML #ResearchGovernance

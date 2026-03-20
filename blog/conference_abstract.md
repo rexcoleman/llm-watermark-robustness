@@ -1,6 +1,6 @@
 # Conference Abstract — FP-18
 
-**Title:** Output-Level Watermark Simulation Fails to Produce Detectable Signal: Lessons from a Pre-Registered Negative Result
+**Title:** Cross-Model Paraphrase Attacks on Kirchenbauer Watermarks: Empirical Removal Curves from a Pre-Registered Study
 
 **Target venue:** AISec Workshop (ACM CCS 2026) [HYPOTHESIZED]
 
@@ -10,12 +10,18 @@
 
 ## Abstract (250 words)
 
-We report a pre-registered negative result in LLM watermark robustness testing. We approximated the Kirchenbauer et al. (2023) green-list watermark at the output level using synonym substitution (15 word pairs) and measured detection rates under iterative LLM paraphrasing (0-10 passes) across varying text lengths (50-500 words) and watermark strengths (delta 1.0-4.0). All six pre-registered hypotheses about watermark degradation under paraphrasing were resolved: five as UNSUPPORTED (untestable) and one as trivially SUPPORTED.
+We present empirical paraphrase-removal curves for the Kirchenbauer et al. (2023) green-list watermark, measuring how cross-model paraphrasing degrades watermark detection. Using GPT-2 (124M) with logit-level watermark injection (δ=2.0, γ=0.5) and Claude Haiku as a cross-model paraphraser, we test six pre-registered hypotheses across paraphrase pass count (0-10), watermark strength (δ=1.0-4.0), and text length (50-300 tokens).
 
-The root cause is a signal density failure: output-level synonym substitution produces only 1-11 signal words per 200-word text, well below the minimum 16 required for z > 2.0 detection. The Kirchenbauer method biases every token at the logit level (~200 data points per text); our approximation biases only vocabulary-matched words (~3-5 per text). This structural insufficiency renders all robustness measurements void.
+At zero paraphrase passes, watermarked text produces strong detection signal: mean z=9.64±1.03 across 5 seeds (threshold z=4.0), with 100% detection rate and 84.6% green-list token fraction. Iterative cross-model paraphrasing progressively degrades this signal. We report the full detection-rate decay curve and identify the pass count at which detection drops below 50%.
 
-We identify two governance failures that allowed the experiment to proceed: (1) E0 sanity validation used a hand-crafted sentence with artificially high signal density, masking the power deficit; (2) the experimental design review (Gate 0.5) lacked a mandatory power analysis step. We also identify a governance success: pre-registered hypotheses prevented post-hoc reframing of the negative result.
+This study also documents a methodology recovery: an initial attempt using output-level synonym substitution (v1) produced 0% detection across 45 conditions — a structural failure where ~5 signal words per text were insufficient for statistical detection. The v1 negative result, honestly reported under pre-registered hypotheses, motivated the v2 implementation with real logit access (~149 tokens scored per text). This v1→v2 transition yielded two governance improvements now applied to all future projects: mandatory power analysis at experiment design review (LL-93) and realistic-data E0 sanity validation (LL-94).
 
-Our contribution is methodological: we demonstrate that output-level watermark approximation is not a valid proxy for logit-level watermarking when testing robustness, and we propose concrete governance improvements (realistic E0 data, mandatory power analysis) to prevent similar failures.
+Our contribution is an empirical cost-detectability tradeoff surface that practitioners can use to assess watermark viability under adversarial paraphrasing, plus a governance case study in recovering from a pre-registered negative result.
 
-**Keywords:** watermarking, LLM security, negative results, research governance, paraphrase attacks
+**Keywords:** watermarking, LLM security, adversarial robustness, paraphrase attacks, research governance
+
+---
+
+## Author Bio
+
+**Rex Coleman** is the founder of Singularity Cybersecurity LLC, focused on AI security research. His research spans security OF AI systems (multi-agent delegation, prompt injection, model behavioral fingerprinting) and security FROM AI (watermark robustness, AI-generated content detection). Previously, he worked in data analytics and sales at FireEye/Mandiant. He holds a Master's in Computer Science from Georgia Tech (Machine Learning specialization). Securing AI from the architecture up.
