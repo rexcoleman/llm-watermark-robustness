@@ -102,9 +102,9 @@ All 6 hypotheses were resolved as UNSUPPORTED/UNTESTABLE under v1 (synonym subst
 
 | ID | Statement (short) | Prediction | v1 Status | v2 Status |
 |----|-------------------|-----------|-----------|-----------|
-| H-1 | Monotonic z-score decrease | Each pass reduces z | UNSUPPORTED (UNTESTABLE) | PENDING |
-| H-2 | 3-5 passes removes watermark | detection < 50% by pass 5 | UNSUPPORTED (UNTESTABLE) | PENDING |
-| H-3 | Higher delta = more robust | delta 4.0 survives more than 1.0 | UNSUPPORTED (UNTESTABLE) | PENDING |
-| H-4 | Short texts more vulnerable | 50tok loses faster than 300tok | UNSUPPORTED (UNTESTABLE) | PENDING |
-| H-5 | FPR ≤ 5% | Unwatermarked text not flagged | SUPPORTED (trivially) | PENDING |
-| H-6 | Survival is predictable (R² > 0.5) | Model from pass+delta+length | UNSUPPORTED (R²=0.043) | PENDING |
+| H-1 | Monotonic z-score decrease | Each pass reduces z | UNSUPPORTED (UNTESTABLE) | **SUPPORTED** (9.64→3.89 monotonic) |
+| H-2 | 3-5 passes removes watermark | detection < 50% by pass 5 | UNSUPPORTED (UNTESTABLE) | **NOT SUPPORTED** (60% at pass 5) |
+| H-3 | Higher delta = more robust | delta 4.0 survives more than 1.0 | UNSUPPORTED (UNTESTABLE) | **SUPPORTED** (δ=4.0: 60% vs δ=1.0: 0%) |
+| H-4 | Short texts more vulnerable | 50tok loses faster than 300tok | UNSUPPORTED (UNTESTABLE) | **SUPPORTED** (50tok: 0% vs 300tok: 60%) |
+| H-5 | FPR ≤ 5% | Unwatermarked text not flagged | SUPPORTED (trivially) | **SUPPORTED** (0% FPR, non-trivial) |
+| H-6 | Survival is predictable (R² > 0.5) | Model from pass+delta+length | UNSUPPORTED (R²=0.043) | **NOT SUPPORTED** (R²=0.131) |

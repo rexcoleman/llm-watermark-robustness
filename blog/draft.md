@@ -30,9 +30,16 @@ This cross-model setup tests the realistic attack scenario: an adversary doesn't
 
 **At pass=0 (no paraphrasing), watermarked text is strongly detectable.** Mean z-score of 9.64±1.03 across 5 seeds, with 100% detection rate. The green-list fraction is ~84-86%, far above the 50% expected by chance. The Kirchenbauer watermark works.
 
-**Cross-model paraphrasing degrades the signal.** Each paraphrase pass strips some green-list tokens and replaces them with tokens sampled from the paraphraser's own distribution. The z-score drops progressively.
+**Cross-model paraphrasing degrades the signal — but not as fast as you'd think.** One pass drops detection from 100% to 60%. Then it plateaus. Even after 10 passes, 40% of watermarked texts are still detectable.
 
-_Full paraphrase-removal curves will be added when experiments complete._
+| Passes | Mean z-score | Detection Rate |
+|--------|-------------|----------------|
+| 0 | 9.64 ± 1.03 | 100% |
+| 1 | 5.21 ± 1.74 | 60% |
+| 2 | 4.85 ± 1.75 | 60% |
+| 3 | 4.72 ± 0.96 | 60% |
+| 5 | 4.66 ± 1.87 | 60% |
+| 10 | 3.89 ± 1.26 | 40% |
 
 ![Z-score decay under paraphrasing](images/e1_zscore_decay.png)
 
