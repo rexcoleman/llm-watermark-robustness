@@ -59,12 +59,14 @@ def get_paraphrase_client():
 
 def paraphrase(client, text):
     """Paraphrase using Claude (cross-model adversarial attack)."""
+    # Sanitize GPT-2 output: replace non-ASCII chars that can break HTTP headers
+    clean_text = text.encode("ascii", errors="replace").decode("ascii")
     resp = client.messages.create(
-        model="claude-3-haiku-20240307", max_tokens=len(text.split()) * 3,
+        model="claude-3-haiku-20240307", max_tokens=max(256, len(clean_text.split()) * 3),
         temperature=0.7,
         messages=[{"role": "user", "content":
             f"Paraphrase the following text completely. Change all word choices "
-            f"while preserving the meaning:\n\n{text}"}],
+            f"while preserving the meaning:\n\n{clean_text}"}],
     )
     return resp.content[0].text
 
