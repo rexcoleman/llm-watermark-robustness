@@ -1,0 +1,34 @@
+{
+  "experiment": "e0",
+  "date": "2026-03-20T00:11:17.135713",
+  "results": {
+    "e0a": {
+      "pass": true,
+      "z_score": 8.438088781346117,
+      "green_fraction": 0.8456375838926175,
+      "green_count": 126,
+      "num_tokens_scored": 149,
+      "detected": true,
+      "text_preview": " by its very nature very uncertain and we are beginning to have to hide the true essence of what is "
+    },
+    "e0b": {
+      "pass": true,
+      "z_score": -0.08192319205190406,
+      "green_fraction": 0.4966442953020134,
+      "green_count": 74,
+      "num_tokens_scored": 149,
+      "detected": false,
+      "text_preview": " disastrous. Within a few years, we will likely run out of self-driving cars and we are acquiring te"
+    },
+    "e0c": {
+      "pass": true,
+      "z_low": 4.321662605614612,
+      "z_high": 8.833511636662486
+    },
+    "e0d": {
+      "pass": true,
+      "num_tokens": 149
+    },
+    "overall_pass": true
+  }
+}
