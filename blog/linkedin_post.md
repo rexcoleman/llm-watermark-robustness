@@ -17,6 +17,10 @@ Key findings from the v1 failure:
 
 The governance framework caught what intuition missed. A back-of-envelope calculation would have saved a week.
 
-Full analysis with paraphrase-removal curves: [link]
+Are you relying on watermarks for AI content detection? What's your fallback?
 
 #AISecurity #Watermarking #LLMSecurity #AdversarialML #ResearchGovernance
+
+---
+
+> First comment: "Full analysis with paraphrase-removal curves: [blog URL]"

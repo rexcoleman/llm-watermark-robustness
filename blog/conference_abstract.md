@@ -10,13 +10,11 @@
 
 ## Abstract (250 words)
 
-We present empirical paraphrase-removal curves for the Kirchenbauer et al. (2023) green-list watermark, measuring how cross-model paraphrasing degrades watermark detection. Using GPT-2 (124M) with logit-level watermark injection (δ=2.0, γ=0.5) and Claude Haiku as a cross-model paraphraser, we test six pre-registered hypotheses across paraphrase pass count (0-10), watermark strength (δ=1.0-4.0), and text length (50-300 tokens).
+AI-generated text watermarking is proposed as a detection mechanism, but how robust are these watermarks against adversarial removal? Cross-model paraphrasing — using one LLM to rewrite another's watermarked output — is the most accessible attack, yet empirical removal curves do not exist in the literature.
 
-At zero paraphrase passes, watermarked text produces strong detection signal: mean z=9.64±1.03 across 5 seeds (threshold z=4.0), with 100% detection rate and 84.6% green-list token fraction. Iterative cross-model paraphrasing progressively degrades this signal. We report the full detection-rate decay curve and identify the pass count at which detection drops below 50%.
+We measure paraphrase-removal curves for the Kirchenbauer et al. (2023) green-list watermark using GPT-2 (124M) with logit-level injection and Claude Haiku as a cross-model paraphraser, testing six pre-registered hypotheses across pass count (0-10), watermark strength (delta 1.0-4.0), and text length (50-300 tokens). At baseline: z=9.64, 100% detection. Iterative paraphrasing progressively degrades this signal; we identify the pass count at which detection drops below 50%. An initial v1 approach using synonym substitution produced 0% detection across 45 conditions — a structural failure that motivated our v2 implementation and yielded two governance improvements (mandatory power analysis, E0 sanity validation).
 
-This study also documents a methodology recovery: an initial attempt using output-level synonym substitution (v1) produced 0% detection across 45 conditions — a structural failure where ~5 signal words per text were insufficient for statistical detection. The v1 negative result, reported under pre-registered hypotheses, motivated the v2 implementation with real logit access (~149 tokens scored per text). This v1→v2 transition yielded two governance improvements now applied to all future projects: mandatory power analysis at experiment design review (LL-93) and realistic-data E0 sanity validation (LL-94).
-
-Our contribution is an empirical cost-detectability tradeoff surface that practitioners can use to assess watermark viability under adversarial paraphrasing, plus a governance case study in recovering from a pre-registered negative result.
+Attendees will leave with an empirical cost-detectability tradeoff surface for assessing watermark viability under adversarial paraphrasing, plus a reproducible methodology for generating removal curves on their own watermark implementations.
 
 **Keywords:** watermarking, LLM security, adversarial robustness, paraphrase attacks, research governance
 
