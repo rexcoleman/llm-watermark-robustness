@@ -12,7 +12,7 @@ hypothesized: false
 
 ## The Question
 
-How many rounds of LLM paraphrasing does it take to strip a statistical watermark from AI-generated text? This matters because watermarking is one of the most promising approaches to AI content detection — and if a cheap paraphrasing attack can remove it, the entire approach may be unviable for adversarial settings.
+How many rounds of LLM paraphrasing does it take to strip a statistical watermark from AI-generated text? This matters because watermarking is the leading technical approach to AI content detection — and if a cheap paraphrasing attack can remove it, the entire approach may be unviable for adversarial settings.
 
 We set out to measure this empirically with a cross-model attack: watermark text with one model (GPT-2), paraphrase with another (Claude Haiku), and measure how the watermark signal degrades. Six pre-registered hypotheses. Five experiments. Real Kirchenbauer green-list watermarking with logit access.
 
@@ -79,7 +79,7 @@ A watermark detector is useless if it falsely flags unwatermarked text. E5 tests
 
 ## What the Governance Framework Caught
 
-This project was a deliberate governance pressure test — applying our research governance (50+ rules, pre-registered hypotheses, quality gates) to an unfamiliar domain.
+This project was a governance pressure test — applying our research governance (50+ rules, pre-registered hypotheses, quality gates) to an unfamiliar domain.
 
 **What worked:**
 - **Pre-registration forced honest reporting** of the v1 negative result. We could not retroactively claim we were "testing simulation fidelity." The hypotheses were about watermark robustness, and they failed.
