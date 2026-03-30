@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this research, please cite it as below."
+type: software
+title: ": LLM Watermark Robustness Under Adversarial Paraphrasing"
+authors:
+  - family-names: Coleman
+    given-names: Rex
+abstract: ": LLM Watermark Robustness Under Adversarial Paraphrasing"
+date-released: "2026-03-20"
+url: "https://github.com/rexcoleman/llm-watermark-robustness"
+repository-code: "https://github.com/rexcoleman/llm-watermark-robustness"
+license: MIT
+keywords:
+  - "adversarial-ml"
+  - "large-language-models"
+  - "reproducible-research"
+  - "security-ml"
