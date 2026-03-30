@@ -6,7 +6,7 @@
 
 ![govML](https://img.shields.io/badge/govML-v3.3-blue) ![Quality](https://img.shields.io/badge/quality-8.3-brightgreen) ![License](https://img.shields.io/badge/license-MIT-green)
 
-![Key Result](outputs/figures/e1_detection_rate.png)
+![Key Result](docs/images/e1_detection_rate.png)
 
 ## Key Results
 
